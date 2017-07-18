@@ -4,6 +4,7 @@
 <link rel="import" href="../paper-item/paper-item.html">
 <link rel="import" href="../mdb-radio-list/mdb-radio-list.html">
 <link rel="import" href="../paper-radio-button/paper-radio-button.html">
+<link rel="import" href="../paper-checkbox/paper-checkbox.html">
 
 <!--
 `mdb-example-values`
@@ -26,7 +27,10 @@ Custom property | Description | Default
     <style>
        :host {
         display: block;
-        --mdb-example-background-color: #eaeff3;        
+        padding: var(--standard-padding, 20px);
+        border: 1px solid var(--mdb-border-color, #000);
+        background-color: var(--mdb-primary-color-background, #fcfdff);
+        --mdb-example-background-color: #eaeff3;
       }
 
        :host mdb-simple-list {
@@ -37,21 +41,21 @@ Custom property | Description | Default
         --mdb-list-item: {
           float: left;
           background-color: var(--mdb-example-background-color);
-          color: var(--mdb-font-color);
           border-radius: 3em;
           padding: 10px;
           margin: 5px 5px 5px 0;
+          width: 160px;
           @apply(--mdb-example-values);
         }
         --mdb-list-item-focused: {
           border-radius: 3em;
+          color: var(--mdb-primary-text-dark, #000);
           background-color: var(--mdb-example-background-color);
-          color: var(--mdb-font-color);
         }
         --mdb-list-item-selected: {
           border-radius: 3em;
+          color: var(--mdb-primary-text-dark, #000);
           background-color: var(--mdb-example-background-color);
-          color: var(--mdb-font-color);
         }
       }
 
@@ -59,16 +63,18 @@ Custom property | Description | Default
         margin-left: 10px;
       }
 
-       :host paper-radio-button {
-        background-color: #fff;
+       :host paper-checkbox {
+        position: absolute;
+        right: 10px;
       }
     </style>
     <mdb-title help-text="{{helpText}}" level="3">[[title]]</mdb-title>
-    <mdb-simple-list items="{{examples}}">
-      <template>
-        <paper-item class="example">
-          [[item.example]]
-          <mdb-radio-list size="small" data-facet$="[[item.name]]" selected="{{item.recommended}}"/>
+    <template is="dom-if" if="[[!_isExploreMode(mode)]]">
+      <mdb-simple-list items="{{examples}}">
+        <template>
+          <paper-item class="example">
+            <span>[[item.example]]</span>
+            <mdb-radio-list size="small" data-facet$="[[item.name]]" selected="{{item.recommended}}" />
             <paper-radio-button name="yes" title="YES">
               &#x2713;
             </paper-radio-button>
@@ -78,10 +84,22 @@ Custom property | Description | Default
             <paper-radio-button name="maybe" title="MAYBE">
               ?
             </paper-radio-button>
-          </mdb-radio-list>
-        </paper-item>
-      </template>
-    </mdb-simple-list>
+            </mdb-radio-list>
+          </paper-item>
+        </template>
+      </mdb-simple-list>
+    </template>
+    <template is="dom-if" if="[[_isExploreMode(mode)]]">
+      <mdb-simple-list items="{{examples}}">
+        <template>
+          <paper-item class="example">
+            <span>[[item.example]]</span>
+            <paper-checkbox></paper-checkbox>
+          </paper-item>
+        </template>
+      </mdb-simple-list>
+    </template>
+
   </template>
 
   <script>
@@ -103,7 +121,16 @@ Custom property | Description | Default
         examples: {
           type: Array,
           value: []
+        },
+
+        mode: {
+          type: String,
+          value: 'explore'
         }
+      },
+
+      _isExploreMode: function (mode) {
+        return mode === 'explore'
       },
 
       _facetRecommendationChanged: function (e) {
