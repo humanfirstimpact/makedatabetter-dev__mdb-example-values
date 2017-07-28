@@ -1,0 +1,55 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-checkbox/paper-checkbox.html">
+<link rel="import" href="../mdb-radio-list/mdb-radio-list.html">
+<link rel="import" href="../paper-radio-button/paper-radio-button.html">
+
+<dom-module id="mdb-example-value-define">
+    <template>
+        <style>
+             :host {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+            }
+
+             :host mdb-radio-list {
+                margin-left: 10px;
+                display: inline;
+            }
+
+             :host paper-radio-button {
+                display: inline;
+            }
+        </style>
+        <span>[[example]]</span>
+        <mdb-radio-list size="small" selected="[[_isRecommended(recommended)]]" />
+        <paper-radio-button name="yes" title="YES">
+            &#x2713;
+        </paper-radio-button>
+        <paper-radio-button name="no" title="NO">
+            &#x2717;
+        </paper-radio-button>
+        <paper-radio-button name="maybe" title="MAYBE">
+            ?
+        </paper-radio-button>
+        </mdb-radio-list>
+    </template>
+    <script>
+        Polymer({
+            is: 'mdb-example-value-define',
+
+            properties: {
+                example: String,
+
+                recommended: {
+                    type: String,
+                    value: 'maybe'
+                }
+            },
+
+            _isRecommended: function (verified) {
+                return verified === 'Y' ? 'yes' : verified === 'N' ? 'no' : 'maybe';
+            }
+        });
+    </script>
+</dom-module>
