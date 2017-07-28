@@ -2,9 +2,8 @@
 <link rel="import" href="../mdb-title/mdb-title.html">
 <link rel="import" href="../mdb-simple-list/mdb-simple-list.html">
 <link rel="import" href="../paper-item/paper-item.html">
-<link rel="import" href="../mdb-radio-list/mdb-radio-list.html">
-<link rel="import" href="../paper-radio-button/paper-radio-button.html">
-<link rel="import" href="../paper-checkbox/paper-checkbox.html">
+<link rel="import" href="./mdb-example-value-define.html">
+<link rel="import" href="./mdb-example-value-explore.html">
 
 <!--
 `mdb-example-values`
@@ -44,7 +43,7 @@ Custom property | Description | Default
           border-radius: 3em;
           padding: 10px;
           margin: 5px 5px 5px 0;
-          width: 160px;
+          min-width: 160px;
           @apply(--mdb-example-values);
         }
         --mdb-list-item-focused: {
@@ -58,33 +57,13 @@ Custom property | Description | Default
           background-color: var(--mdb-example-background-color);
         }
       }
-
-       :host mdb-radio-list {
-        margin-left: 10px;
-      }
-
-       :host paper-checkbox {
-        position: absolute;
-        right: 10px;
-      }
     </style>
     <mdb-title help-text="{{helpText}}" level="3">[[title]]</mdb-title>
     <template is="dom-if" if="[[!_isExploreMode(mode)]]">
       <mdb-simple-list items="{{examples}}">
         <template>
           <paper-item class="example">
-            <span>[[item.example]]</span>
-            <mdb-radio-list size="small" data-facet$="[[item.name]]" selected="{{item.recommended}}" />
-            <paper-radio-button name="yes" title="YES">
-              &#x2713;
-            </paper-radio-button>
-            <paper-radio-button name="no" title="NO">
-              &#x2717;
-            </paper-radio-button>
-            <paper-radio-button name="maybe" title="MAYBE">
-              ?
-            </paper-radio-button>
-            </mdb-radio-list>
+            <mdb-example-value-define example="[[item.label]]" recommended="[[item.verified]]"></mdb-example-value-define>
           </paper-item>
         </template>
       </mdb-simple-list>
@@ -93,8 +72,7 @@ Custom property | Description | Default
       <mdb-simple-list items="{{examples}}">
         <template>
           <paper-item class="example">
-            <span>[[item.example]]</span>
-            <paper-checkbox></paper-checkbox>
+            <mdb-example-value-explore example="[[item.label]]"></mdb-example-value-explore>
           </paper-item>
         </template>
       </mdb-simple-list>
