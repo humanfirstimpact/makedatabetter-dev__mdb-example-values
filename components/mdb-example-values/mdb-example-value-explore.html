@@ -14,7 +14,7 @@
                 margin-left: var(--standard-padding, 20px);
             }
         </style>
-        <span>[[example]]</span>
+        <span>[[example.label]]</span>
         <paper-checkbox checked="{{checked}}"></paper-checkbox>
     </template>
     <script>
@@ -22,7 +22,10 @@
             is: 'mdb-example-value-explore',
 
             properties: {
-                example: String,
+                example: {
+                    type: Object,
+                    value: {}
+                },
 
                 checked: {
                     type: Boolean,

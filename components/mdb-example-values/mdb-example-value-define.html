@@ -21,8 +21,8 @@
                 display: inline;
             }
         </style>
-        <span>[[example]]</span>
-        <mdb-radio-list size="small" selected="[[verified]]" />
+        <span>[[example.label]]</span>
+        <mdb-radio-list size="small" selected="{{example.verified}}" />
         <paper-radio-button name="Y" title="YES">
             &#x2713;
         </paper-radio-button>
@@ -39,16 +39,10 @@
             is: 'mdb-example-value-define',
 
             properties: {
-                example: String,
-
-                verified: {
-                    type: String,
-                    value: 'F'
+                example: {
+                    type: Object,
+                    value: {}
                 }
-            },
-
-            _isRecommended: function (verified) {
-                return verified === 'Y' ? 'yes' : verified === 'N' ? 'no' : 'maybe';
             }
         });
     </script>

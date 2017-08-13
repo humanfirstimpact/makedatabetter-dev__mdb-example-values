@@ -15,11 +15,11 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   },
   "homepage": "https://github.com/makedatabetter-dev/mdb-example-values",
-  "_release": "968348e34c",
+  "_release": "e6117b4fd5",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "968348e34ca04b4d99a6b252005be4cd17fc1877"
+    "commit": "e6117b4fd5e4f7bfb5df23064478f467d4cb0245"
   },
   "_source": "https://github.com/makedatabetter-dev/mdb-example-values.git",
   "_target": "master",
