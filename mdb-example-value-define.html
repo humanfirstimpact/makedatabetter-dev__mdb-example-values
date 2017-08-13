@@ -22,14 +22,14 @@
             }
         </style>
         <span>[[example]]</span>
-        <mdb-radio-list size="small" selected="[[_isRecommended(recommended)]]" />
-        <paper-radio-button name="yes" title="YES">
+        <mdb-radio-list size="small" selected="[[verified]]" />
+        <paper-radio-button name="Y" title="YES">
             &#x2713;
         </paper-radio-button>
-        <paper-radio-button name="no" title="NO">
+        <paper-radio-button name="N" title="NO">
             &#x2717;
         </paper-radio-button>
-        <paper-radio-button name="maybe" title="MAYBE">
+        <paper-radio-button name="F" title="MAYBE">
             ?
         </paper-radio-button>
         </mdb-radio-list>
@@ -41,9 +41,9 @@
             properties: {
                 example: String,
 
-                recommended: {
+                verified: {
                     type: String,
-                    value: 'maybe'
+                    value: 'F'
                 }
             },
 
