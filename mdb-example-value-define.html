@@ -2,6 +2,7 @@
 <link rel="import" href="../paper-checkbox/paper-checkbox.html">
 <link rel="import" href="../mdb-radio-list/mdb-radio-list.html">
 <link rel="import" href="../paper-radio-button/paper-radio-button.html">
+<link rel="import" href="../paper-styles/typography.html">
 
 <dom-module id="mdb-example-value-define">
     <template>
@@ -10,6 +11,7 @@
                 display: flex;
                 justify-content: space-between;
                 width: 100%;
+                @apply(--paper-font-common-base);
             }
 
              :host mdb-radio-list {
