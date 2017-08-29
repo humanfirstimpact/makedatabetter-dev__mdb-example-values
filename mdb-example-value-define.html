@@ -24,16 +24,16 @@
             }
         </style>
         <span>[[example.label]] ([[example.relevance]]%)</span>
-        <mdb-radio-list size="small" selected="{{example.verified}}" />
-        <paper-radio-button name="Y" title="YES">
-            &#x2713;
-        </paper-radio-button>
-        <paper-radio-button name="N" title="NO">
-            &#x2717;
-        </paper-radio-button>
-        <paper-radio-button name="F" title="MAYBE">
-            ?
-        </paper-radio-button>
+        <mdb-radio-list size="small" selected="{{example.assessment}}" />
+            <paper-radio-button name="Y" title="YES">
+                &#x2713;
+            </paper-radio-button>
+            <paper-radio-button name="N" title="NO">
+                &#x2717;
+            </paper-radio-button>
+            <paper-radio-button name="M" title="MAYBE">
+                ?
+            </paper-radio-button>
         </mdb-radio-list>
     </template>
     <script>
