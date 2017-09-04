@@ -29,7 +29,7 @@ Custom property | Description | Default
         padding: var(--standard-padding, 20px);
         border: 1px solid var(--mdb-border-color, #000);
         background-color: var(--mdb-primary-color-background, #fcfdff);
-        --mdb-example-background-color: #eaeff3;
+        --mdb-example-background-color: #fff;
       }
 
        :host mdb-simple-list {
@@ -40,19 +40,17 @@ Custom property | Description | Default
         --mdb-list-item: {
           float: left;
           background-color: var(--mdb-example-background-color);
-          border-radius: 3em;
+          border: 1px solid var(--mdb-border-color, #dee7eb);
           padding: 10px;
-          margin: 5px 5px 5px 0;
+          margin: 5px 5px 0 0;
           min-width: 160px;
           @apply(--mdb-example-values);
         }
         --mdb-list-item-focused: {
-          border-radius: 3em;
           color: var(--mdb-primary-text-dark, #000);
           background-color: var(--mdb-example-background-color);
         }
         --mdb-list-item-selected: {
-          border-radius: 3em;
           color: var(--mdb-primary-text-dark, #000);
           background-color: var(--mdb-example-background-color);
         }
