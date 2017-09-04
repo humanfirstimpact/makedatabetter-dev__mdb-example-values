@@ -6,16 +6,15 @@
         <style>
              :host {
                 display: flex;
-                justify-content: space-between;
+                flex-direction: column;
+                justify-content: flex-start;
                 width: 100%;
             }
-
-             :host paper-checkbox {
-                margin-left: var(--standard-padding, 20px);
-            }
         </style>
-        <span>[[example.label]] ([[example.relevance]]%)</span>
-        <paper-checkbox checked="{{checked}}"></paper-checkbox>
+        <div>
+            <paper-checkbox checked="{{checked}}"></paper-checkbox>
+            <span>[[example.label]] ([[example.relevance]]%)</span>
+        </div>
     </template>
     <script>
         Polymer({
