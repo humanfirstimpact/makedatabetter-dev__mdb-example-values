@@ -10,11 +10,12 @@
                 justify-content: flex-start;
                 width: 100%;
             }
+
+             :host paper-checkbox {
+                --paper-checkbox-label-color: var(--mdb-primary-text-dark, #000);
+            }
         </style>
-        <div>
-            <paper-checkbox checked="{{checked}}"></paper-checkbox>
-            <span>[[example.label]] ([[example.relevance]]%)</span>
-        </div>
+        <paper-checkbox checked="{{checked}}">[[example.label]] ([[example.relevance]]%)</paper-checkbox>
     </template>
     <script>
         Polymer({
