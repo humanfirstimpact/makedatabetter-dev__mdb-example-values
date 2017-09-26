@@ -58,7 +58,7 @@ Custom property | Description | Default
     </style>
     <mdb-title help-text="{{helpText}}" level="3">[[title]]</mdb-title>
     <template is="dom-if" if="[[!_isExploreMode(mode)]]">
-      <mdb-simple-list items="{{examples}}">
+      <mdb-simple-list items="{{examples}}" empty-message="[[emptyMessage]]">
         <template>
           <paper-item class="example">
             <mdb-example-value-define example="[[item]]"></mdb-example-value-define>
@@ -67,7 +67,7 @@ Custom property | Description | Default
       </mdb-simple-list>
     </template>
     <template is="dom-if" if="[[_isExploreMode(mode)]]">
-      <mdb-simple-list items="{{examples}}">
+      <mdb-simple-list items="{{examples}}" empty-message="[[emptyMessage]]">
         <template>
           <paper-item class="example">
             <mdb-example-value-explore example="[[item]]"></mdb-example-value-explore>
@@ -102,6 +102,11 @@ Custom property | Description | Default
         mode: {
           type: String,
           value: 'explore'
+        },
+
+        emptyMessage: {
+          type: String,
+          value: 'No example values found.'
         }
       },
 
