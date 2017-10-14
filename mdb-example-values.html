@@ -71,7 +71,7 @@ Custom property | Description | Default
       <mdb-simple-list items="{{examples}}" empty-message="[[emptyMessage]]">
         <template>
           <paper-item class="example">
-            <mdb-example-value-explore example="[[item]]"></mdb-example-value-explore>
+            <mdb-example-value-explore checked="[[item.checked]]" example="[[item]]"></mdb-example-value-explore>
           </paper-item>
         </template>
       </mdb-simple-list>

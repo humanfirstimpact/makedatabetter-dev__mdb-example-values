@@ -15,7 +15,9 @@
                 --paper-checkbox-label-color: var(--mdb-secondary-text-dark, #000);
             }
         </style>
-        <paper-checkbox checked="{{checked}}">[[example.label]] ([[example.relevance]]%)</paper-checkbox>
+        <paper-checkbox checked="{{checked}}" on-change='_selectionChanged'>
+            [[example.label]] ([[example.relevance]]%)
+        </paper-checkbox>
     </template>
     <script>
         Polymer({
@@ -31,6 +33,13 @@
                     type: Boolean,
                     value: false
                 }
+            },
+
+            _selectionChanged: function(e){
+                this.fire('example-value-selection-changed', {
+                    value : this.example,
+                    checked: e.currentTarget.checked
+                });
             }
         });
     </script>
